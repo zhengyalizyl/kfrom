@@ -56,4 +56,3 @@ export const applyMiddleware = (...middlewares) => {
   };
 };
 
-export default createStore;
