@@ -31,27 +31,27 @@ export default class App extends Component {
     }
 
     componentDidMount(){
-        this.timer=setInterval(()=>{
-            //更新状态
-            this.setState({
-                date:new Date(),
-                count:this.state.count+1
-            })
-                //注意1：不能直接改状态
-                //this.state.date=new Date();//错误
-                //注意2:setState()异步的
-                this.setState((prevState,prevProps)=>({
+        // this.timer=setInterval(()=>{
+        //     //更新状态
+        //     this.setState({
+        //         // date:new Date(),
+        //         count:this.state.count+1
+        //     })
+        //         //注意1：不能直接改状态
+        //         //this.state.date=new Date();//错误
+        //         //注意2:setState()异步的
+        //         this.setState((prevState,prevProps)=>({
                   
-                            count:prevState.count+1
+        //                     count:prevState.count+1
                         
-                }),()=>{
-                    // console.log(this.shouldComponentUpdate.count)
-                });
+        //         }),()=>{
+        //             // console.log(this.shouldComponentUpdate.count)
+        //         });
 
-        },1000)
+        // },1000)
     }
     componentWillUnmount(){
-        clearInterval(this.timer)
+        // clearInterval(this.timer)
     }
 
     formartName(user) {

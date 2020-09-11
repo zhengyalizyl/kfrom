@@ -40,7 +40,7 @@ export default class ReduxPage extends Component {
             <p>{store.getState()}</p>
             <button onClick={this.add}>add</button>
             <button onClick={this.minus}>minus</button>
-            <button onClick={this.stayStatic}>static</button>
+            <button onClick={this.asyAdd}>异步</button>
       </div>
     );
   }

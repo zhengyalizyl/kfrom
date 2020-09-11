@@ -1,4 +1,6 @@
-import {createStore} from '../KReducer/createStore'
+import {createStore,applyMiddleware} from '../KReducer/createStore'
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
    case 'add':
@@ -9,5 +11,5 @@ const counterReducer = (state = 0, action) => {
     return state
  }
 }
-const store = createStore(counterReducer)
+const store = createStore(counterReducer,applyMiddleware(thunk,logger))
 export default store

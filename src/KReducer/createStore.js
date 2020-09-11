@@ -1,5 +1,6 @@
  export const createStore= (reducer, enhancer) => {
   if (enhancer) {
+    //增强了createStore的dispatch
     return enhancer(createStore)(reducer);
   }
   let currentState;
@@ -41,7 +42,7 @@ export const applyMiddleware = (...middlewares) => {
     let dispatch = store.dispatch;
 
     const midApi = {
-      getState: store.getState(),
+      getState: store.getState,
       dispatch: (...args) => dispatch(...args)
     };
     // 使中间件可以获取状态值、派发action
