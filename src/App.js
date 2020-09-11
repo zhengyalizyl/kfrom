@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import logo from "./logo.png"
 import "./App.css"
 import {Button} from 'antd'
-import Form from "./Form";
+// import Form from "./Form";
+import ReduxPage from "./pages/ReduxPage";
 
 
 
@@ -62,7 +63,7 @@ export default class App extends Component {
         const jsx = <p>hello,zhengyali</p>
         return (
             <div>
-                <Form/>
+                <ReduxPage/>
                 {/**antd使用 */}
                 <Button type="primary">button</Button>
                 App组件
