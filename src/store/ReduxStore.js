@@ -1,6 +1,9 @@
 import {createStore,applyMiddleware} from '../KReducer/createStore'
+import isPromise from 'is-promise'
+import { isFSA } from "flux-standard-action";
 // import logger from "redux-logger";
 // import thunk from "redux-thunk";
+// import reduxPromise from "redux-promise";
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
    case 'add':
@@ -36,5 +39,24 @@ function logger({dispatch,getState}){
 
 
 
-const store = createStore(counterReducer,applyMiddleware(thunk,logger))
+// function reduxPromise({dispatch,getState}){
+//   return next=>action=>{
+//     return isPromise(action)?action.then(dispatch):next(action)
+//   }
+// }
+function reduxPromise({dispatch,getState}){
+  return next=>action=>{
+    if(!isFSA(action)){
+    return isPromise(action)?action.then(dispatch):next(action)
+    }
+    return isPromise(action.payload)?action.payload.then(result=>dispatch({...action,payload:result}))
+    .catch(error => {
+      dispatch({ ...action, payload: error, error: true });
+      return Promise.reject(error);
+    }):next(action)
+  }
+}
+
+
+const store = createStore(counterReducer,applyMiddleware(thunk,reduxPromise,logger))
 export default store
