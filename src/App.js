@@ -3,7 +3,7 @@ import logo from "./logo.png"
 import "./App.css"
 import {Button} from 'antd'
 // import Form from "./Form";
-import ReduxPage from "./pages/ReduxPage";
+import ReduxPage from "./pages/ReactReduxPage";
 
 
 

@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import ReactDOM from "react-dom";
 import App from "./App"
-import store from "./store/ReduxStore";
+import store from "./store/ReactReduxStore";
 // import Lifecycle from "./Lifecycle"
 // import CartSample from "./CartSample"
 // import CommentList from "./components/CommentList";
@@ -12,18 +12,20 @@ import store from "./store/ReduxStore";
 // import KFormSample from "./components/KFormSample";
 // import store from "./store/store"
 // import ReduxTest from "./components/ReduxTest";
-// import {Provider} from 'react-redux'
+import {Provider} from 'react-redux'
 
 // ReactDOM.render(<h1>React真酷</h1>,document.querySelector("#root"))
-const render=()=>{
-    ReactDOM.render(
-      <App />,
-    document.getElementById('root')
-  );
-  }
+// const render=()=>{
+//     ReactDOM.render(
+//       <App />,
+//     document.getElementById('root')
+//   );
+//   }
   
-  render();
-  store.subscribe(render);
+//   render();
+//   store.subscribe(render);
+console.log(store)
+ReactDOM.render(<Provider store={store}><App></App></Provider>,document.getElementById('root'))
 // ReactDOM.render(<CommentList/>,document.querySelector("#root"))
 // ReactDOM.render(<Composition/>,document.querySelector("#root"))
 // ReactDOM.render(<Hoc stage="React" />,document.querySelector("#root"))

@@ -59,7 +59,7 @@ export const applyMiddleware = (...middlewares) => {
 
 export const combineReducer=(reducers)=>{
   return (state={},action)=>{
-    let nextState;
+    let nextState={};
     let hasChanged=false;
     for(let key in reducers){
       nextState[key]=reducers[key](state[key],action);
@@ -67,6 +67,7 @@ export const combineReducer=(reducers)=>{
     }
   //{a:1,b:2}
   //{a:1}
+  // debugger
     hasChanged=hasChanged||Object.key(nextState).length!==Object.key(state).length
     return hasChanged?nextState:state;
   }

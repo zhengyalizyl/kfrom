@@ -1,4 +1,4 @@
-import {createStore,applyMiddleware} from '../KReducer/createStore'
+import {createStore,applyMiddleware, combineReducer} from '../KReducer/createStore'
 import isPromise from 'is-promise'
 import { isFSA } from "flux-standard-action";
 // import logger from "redux-logger";
@@ -71,5 +71,5 @@ function reduxPromise({dispatch,getState}){
 
 
 
-const store = createStore(counterReducer,applyMiddleware(thunk,reduxPromise,logger))
+const store = createStore(combineReducer({count:counterReducer}),applyMiddleware(thunk,reduxPromise,logger))
 export default store
