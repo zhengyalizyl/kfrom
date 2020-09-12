@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import {bindActionCreators} from "redux";
+import { connect } from "../KReactRedux";
+import {bindActionCreators} from "../KReactRedux";
 
 @connect(
   state=>{
     return {count:state.count}
   },
-  {
-    add:()=>({type:'add'}),
-    minus:()=>({type: "minus"})
-  }
-
-  // dispatch=>{
-  //   let creators={
-  //     add:()=>({type:'add'}),
-  //     minus:()=>({type: "minus"})
-  //   };
-  //   creators=bindActionCreators(creators,dispatch);
-  //   return {dispatch,...creators}
+  // {
+  //   add:()=>({type:'add'}),
+  //   minus:()=>({type: "minus"})
   // }
+
+  dispatch=>{
+    let creators={
+      add:()=>({type:'add'}),
+      minus:()=>({type: "minus"})
+    };
+    creators=bindActionCreators(creators,dispatch);
+    return {dispatch,...creators}
+  }
 )
  class ReduxPage extends Component {
   render() {

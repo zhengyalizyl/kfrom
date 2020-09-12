@@ -12,7 +12,7 @@ import store from "./store/ReactReduxStore";
 // import KFormSample from "./components/KFormSample";
 // import store from "./store/store"
 // import ReduxTest from "./components/ReduxTest";
-import {Provider} from 'react-redux'
+import {Provider} from './KReactRedux'
 
 // ReactDOM.render(<h1>React真酷</h1>,document.querySelector("#root"))
 // const render=()=>{
