@@ -66,3 +66,30 @@ if( typeof mapDispatchToProps==='object'){
   },[store]);
   return <WrappedComponent {...props} {...stateProps} {...dispatchProps} />;
 };
+
+
+
+ export const useSelector=(selector)=>{
+  //  const count = useSelector(({count})=>count)
+    const store=useContext(Context);
+    console.log(store)
+    const {getState,subscribe}=store;
+    const [ignored, forceUpdate] = React.useReducer(x => x + 1, 0);
+    React.useLayoutEffect(() => {
+      const unsubscribe=subscribe(() => {
+        forceUpdate();
+      });
+      return ()=>{
+        unsubscribe&&unsubscribe();
+      }
+    },[store]);
+   return selector(getState())
+}
+
+
+export const useDispatch =()=>{
+  // const dispatch = useDispatch();
+  const store=useContext(Context);
+    const {dispatch}=store;
+    return dispatch;
+}

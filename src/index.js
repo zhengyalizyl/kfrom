@@ -13,6 +13,7 @@ import store from "./store/ReactReduxStore";
 // import store from "./store/store"
 // import ReduxTest from "./components/ReduxTest";
 import {Provider} from './KReactRedux'
+// import { Provider } from "react-redux";
 
 // ReactDOM.render(<h1>React真酷</h1>,document.querySelector("#root"))
 // const render=()=>{
