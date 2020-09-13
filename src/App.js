@@ -88,7 +88,7 @@ export default class App extends Component {
             <Route path="/user" component={UserPage} />
             <Route path="/login" component={LoginPage} />
             {/* <Route path="/product/:id" component={Product} /> */}
-            <Route path="welcome" component={WelcomPage} />
+            <Route path="/welcome" component={WelcomPage} />
             <Route component={_404Page} />
           </Switch>
         </BrowserRouter>
