@@ -8,14 +8,18 @@ export default class Route extends Component {
   render() {
     const { component, children, render, path } = this.props;
 
-    const match = path
+    const match = this.props.computedMatch?this.props.computedMatch:(
+    path
       ? matchPath(this.context.location.pathname, this.props)
-      : this.context.match;
+      : this.context.match);
     // return match ? React.createElement(component) : null;
     const props = {
       ...this.context,
       match
     };
+    //match 渲染三者之一 children(function或者节点) component render或者null
+    //不match 渲染children(function)或者null
+
     return match
       ? children
         ? typeof children === "function"

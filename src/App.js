@@ -83,14 +83,14 @@ export default class App extends Component {
             <Link to="/login">登录</Link>
             {/* <Link to="/product/123">商品</Link> */}
           </nav>
-          {/* <Switch> */}
+          <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/user" component={UserPage} />
             <Route path="/login" component={LoginPage} />
             {/* <Route path="/product/:id" component={Product} /> */}
             <Route path="welcome" component={WelcomPage} />
             <Route component={_404Page} />
-          {/* </Switch> */}
+          </Switch>
         </BrowserRouter>
         {/* <ReduxPage /> */}
         {/**antd使用 */}
