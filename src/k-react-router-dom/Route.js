@@ -1,14 +1,33 @@
-import React, { Component } from 'react'
-import { RouterContext } from './Context';
+import React, { Component } from "react";
+import { RouterContext } from "./Context";
+import matchPath from "./matchPath";
+import { type } from "os";
 
 export default class Route extends Component {
-  static contextType=RouterContext;
+  static contextType = RouterContext;
   render() {
-    const {component,path}=this.props;
+    const { component, children, render, path } = this.props;
 
-    const match=path?this.context.location.pathname===path:this.context.match;
-    return (
-     match?React.createElement(component):null
-    )
+    const match = path
+      ? matchPath(this.context.location.pathname, this.props)
+      : this.context.match;
+    // return match ? React.createElement(component) : null;
+    const props = {
+      ...this.context,
+      match
+    };
+    return match
+      ? children
+        ? typeof children === "function"
+          ? children(props)
+          : children
+        : component
+        ? React.createElement(component, props)
+        : render
+        ? render(props)
+        : null
+      : typeof children === "function"
+      ? children(props)
+      : null;
   }
 }
