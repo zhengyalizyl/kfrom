@@ -12,8 +12,8 @@ import store from "./store/ReactReduxStore";
 // import KFormSample from "./components/KFormSample";
 // import store from "./store/store"
 // import ReduxTest from "./components/ReduxTest";
-import {Provider} from './KReactRedux'
-// import { Provider } from "react-redux";
+// import {Provider} from './KReactRedux'
+import { Provider } from "react-redux";
 
 // ReactDOM.render(<h1>React真酷</h1>,document.querySelector("#root"))
 // const render=()=>{
@@ -26,7 +26,7 @@ import {Provider} from './KReactRedux'
 //   render();
 //   store.subscribe(render);
 console.log(store)
-ReactDOM.render(<Provider store={store}><App></App></Provider>,document.getElementById('root'))
+ReactDOM.render(<Provider store={store}><App/></Provider>,document.getElementById('root'))
 // ReactDOM.render(<CommentList/>,document.querySelector("#root"))
 // ReactDOM.render(<Composition/>,document.querySelector("#root"))
 // ReactDOM.render(<Hoc stage="React" />,document.querySelector("#root"))
