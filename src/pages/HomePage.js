@@ -5,7 +5,8 @@ export default class HomePage extends Component {
   render() {
     return (
       <div>
-        <Redirect to={{pathname:'/welcome'}}></Redirect>
+        {/* <Redirect to={{pathname:'/welcome'}}></Redirect> */}
+        HomePage
       </div>
     )
   }

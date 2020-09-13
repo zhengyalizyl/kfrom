@@ -81,13 +81,14 @@ export default class App extends Component {
             <Link to="/">首页</Link>
             <Link to="/user">用户中心</Link>
             <Link to="/login">登录</Link>
-            {/* <Link to="/product/123">商品</Link> */}
+            <Link to="/product/123">商品</Link>
           </nav>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/user" component={UserPage} />
             <Route path="/login" component={LoginPage} />
             {/* <Route path="/product/:id" component={Product} /> */}
+            <Route path="/product/:id" render={()=><Product/>} />
             <Route path="/welcome" component={WelcomPage} />
             <Route component={_404Page} />
           </Switch>
