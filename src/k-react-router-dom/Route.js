@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { RouterContext } from "./Context";
 import matchPath from "./matchPath";
-import { type } from "os";
 
 export default class Route extends Component {
   static contextType = RouterContext;
