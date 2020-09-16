@@ -1,7 +1,7 @@
-import React,{Component} from "react";
-import ReactDOM from "react-dom";
-import App from "./App"
-import store from "./store/ReactReduxStore";
+// import React,{Component} from "react";
+// import ReactDOM from "react-dom";
+// import App from "./App"
+// import store from "./store/ReactReduxStore";
 // import Lifecycle from "./Lifecycle"
 // import CartSample from "./CartSample"
 // import CommentList from "./components/CommentList";
@@ -13,7 +13,7 @@ import store from "./store/ReactReduxStore";
 // import store from "./store/store"
 // import ReduxTest from "./components/ReduxTest";
 // import {Provider} from './KReactRedux'
-import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
 
 // ReactDOM.render(<h1>React真酷</h1>,document.querySelector("#root"))
 // const render=()=>{
@@ -25,8 +25,8 @@ import { Provider } from "react-redux";
   
 //   render();
 //   store.subscribe(render);
-console.log(store)
-ReactDOM.render(<Provider store={store}><App/></Provider>,document.getElementById('root'))
+// console.log(store)
+// ReactDOM.render(<Provider store={store}><App/></Provider>,document.getElementById('root'))
 // ReactDOM.render(<CommentList/>,document.querySelector("#root"))
 // ReactDOM.render(<Composition/>,document.querySelector("#root"))
 // ReactDOM.render(<Hoc stage="React" />,document.querySelector("#root"))
@@ -64,30 +64,43 @@ ReactDOM.render(<Provider store={store}><App/></Provider>,document.getElementByI
 //执行快，类型安全，简单快速
 //原理:babel-loader会预编译jsx为React.createElement(type,props,...children)
 
-// import React,{Component} from "./kreact";
-// import ReactDOM from "./kreact-dom"
-// function Comp(props){
-// return <h1>函数组件，你好{props.name}</h1>
-// }
+import React from "./kreact/index";
+import Component from './kreact/Component'
+import ReactDOM from "./kreact/react-dom"
+import "./App.css";
+function Comp(props){
+    console.log(props)
+return <h1>函数组件，你好{props.name}</h1>
+}
 
-// class Comp2 extends Component{
-//     render(){
-//        return  <h2>class组件</h2>
-//     }
-// }
+class Comp2 extends Component{
+    static defaultProps={
+        color:'pink'
+    }
+    render(){
+       return  (
+       <div>
+           <h2  className={this.props.color}>class组件---{this.props.name}</h2>
+           <h3>23333333</h3>
+           </div>
+       )
+    }
+}
 
-// const jsx=(
-//     <div id="demo" style={{color:'red'}} className="box">
-//         <span>hi</span>
-//        <Comp name="zyl"></Comp>
-//        <Comp2 name="zyl"></Comp2>
-//        <ul>
-           
-//        </ul>
-//     </div>
-// )
+const jsx=(
+    <div id="demo" style={{color:'red'}} className="box">
+        <span>hi</span>
+        <div>开可把</div>
+       <Comp name="zyl"></Comp>
+       <Comp2 name="zyl" ></Comp2> 
+       <>
+       <p>1233</p>
+       <p>2345</p>
+       </>
+    </div>
+)
 
-// ReactDOM.render(jsx,document.querySelector("#root"))
+ReactDOM.render(jsx,document.querySelector("#root"))
 
 //1.webpack+babel-loader编译时，替换jsx为React.createElement(...)
 //2.所有React.createElement(...)执行结束会得到一个js对象树，能够完整描述dom结构，称之为虚拟dom
