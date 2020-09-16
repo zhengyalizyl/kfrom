@@ -22,7 +22,7 @@
 //     document.getElementById('root')
 //   );
 //   }
-  
+
 //   render();
 //   store.subscribe(render);
 // console.log(store)
@@ -37,13 +37,11 @@
 // ReactDOM.render(<Lifecycle />,document.querySelector("#root"))
 // ReactDOM.render(<CartSample title="React购物车"/>,document.querySelector("#root"))
 
-
 // //动态渲染
 // function tick(){
 //     ReactDOM.render(<h2>{new Date().toLocaleTimeString()}</h2>,document.querySelector("#root"))
 // }
 // setInterval(tick,1000);
-
 
 // function render(){
 //     ReactDOM.render(
@@ -65,42 +63,42 @@
 //原理:babel-loader会预编译jsx为React.createElement(type,props,...children)
 
 import React from "./kreact/index";
-import Component from './kreact/Component'
-import ReactDOM from "./kreact/react-dom"
+import Component from "./kreact/Component";
+import ReactDOM from "./kreact/react-dom";
 import "./App.css";
-function Comp(props){
-    console.log(props)
-return <h1>函数组件，你好{props.name}</h1>
+function Comp(props) {
+  console.log(props);
+  return <h1>函数组件，你好{props.name}</h1>;
 }
 
-class Comp2 extends Component{
-    static defaultProps={
-        color:'pink'
-    }
-    render(){
-       return  (
-       <div>
-           <h2  className={this.props.color}>class组件---{this.props.name}</h2>
-           <h3>23333333</h3>
-           </div>
-       )
-    }
+class Comp2 extends Component {
+  static defaultProps = {
+    color: "pink"
+  };
+  render() {
+    return (
+      <div>
+        <h2 className={this.props.color}>class组件---{this.props.name}</h2>
+        <h3>23333333</h3>
+      </div>
+    );
+  }
 }
 
-const jsx=(
-    <div id="demo" style={{color:'red'}} className="box">
-        <span>hi</span>
-        <div>开可把</div>
-       <Comp name="zyl"></Comp>
-       <Comp2 name="zyl" ></Comp2> 
-       <>
-       <p>1233</p>
-       <p>2345</p>
-       </>
-    </div>
-)
+const jsx = (
+  <div id="demo" style={{ color: "red" }} className="box">
+    <span>hi</span>
+    <div>开可把</div>
+    <Comp name="zyl"></Comp>
+    <Comp2 name="zyl"></Comp2>
+    <>
+      <p>1233</p>
+      <p>2345</p>
+    </>
+  </div>
+);
 
-ReactDOM.render(jsx,document.querySelector("#root"))
+ReactDOM.render(jsx, document.querySelector("#root"));
 
 //1.webpack+babel-loader编译时，替换jsx为React.createElement(...)
 //2.所有React.createElement(...)执行结束会得到一个js对象树，能够完整描述dom结构，称之为虚拟dom
@@ -112,7 +110,6 @@ ReactDOM.render(jsx,document.querySelector("#root"))
 //2.拥有相同类的两个组建将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构
 //3.对于同一层级的一组子节点，它们可以通过唯一id进行区分
 //基于以上三个前提策略，React分别对tree diff，component diff以及element diff进行算法优化
-
 
 //1.redux是什么：redux是管理react state的工具
 //2.为什么需要reux?
@@ -139,7 +136,7 @@ ReactDOM.render(jsx,document.querySelector("#root"))
 //用react做的思路大概是这个样子:
 //1.state控制输入框的显示值，初始值是0
 //this.state={
-    // num:0
+// num:0
 // }
 // 2.两个按钮分别有一个事件，点击时改变state，这样输入框显示的值也就改变了
 // handleClick:function(){
@@ -190,9 +187,6 @@ ReactDOM.render(jsx,document.querySelector("#root"))
 //     ...
 // })
 
-
-
-
 //connect()
 // React-Redux提供connect方法，用于从ui组件生成容器组件。connect的意思，就是将这两种组件连接起来。
 // import {  connect} from "react-redux";
@@ -201,7 +195,6 @@ ReactDOM.render(jsx,document.querySelector("#root"))
 //     mapDispatchToProps
 // )(TodoList)
 // 上面代码中，TodoList是UI组件，VisibleTodoList就是由React-Redux通过connect方法自动生成的容器组件
-
 
 //<Provider>组件
 // connect方法生成容器组件以后，需要让容器组件拿到state对象，才能生成ui组件的参数：
@@ -231,7 +224,7 @@ ReactDOM.render(jsx,document.querySelector("#root"))
 //       return this.props.children;
 //     }
 //   }
-  
+
 //   Provider.childContextTypes = {
 //     store: React.PropTypes.object
 //   }
@@ -243,7 +236,7 @@ ReactDOM.render(jsx,document.querySelector("#root"))
 //         this.forceUpdate()
 //       );
 //     }
-  
+
 //     render() {
 //       const props = this.props;
 //       const { store } = this.context;
@@ -251,12 +244,7 @@ ReactDOM.render(jsx,document.querySelector("#root"))
 //       // ...
 //     }
 //   }
-  
+
 //   VisibleTodoList.contextTypes = {
 //     store: React.PropTypes.object
 //   }
-
-
-
-
-
