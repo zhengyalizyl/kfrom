@@ -64,11 +64,14 @@
 
 import React from "./kreact/index";
 import Component from "./kreact/Component";
-import ReactDOM from "./kreact/react-dom";
+import ReactDOM,{useState} from "./kreact/react-dom";
 import "./App.css";
 function Comp(props) {
-  console.log(props);
-  return <h1>函数组件，你好{props.name}</h1>;
+ const  [count, setCount] = useState(0)
+  return (<>
+  <h1>函数组件，你好{props.name}-{count}</h1>
+  <button onClick={()=>setCount(count+1)}>add</button>
+  </>);
 }
 
 class Comp2 extends Component {
