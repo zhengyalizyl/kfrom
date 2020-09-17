@@ -71,6 +71,7 @@ function Comp(props) {
   return (<>
   <h1>函数组件，你好{props.name}-{count}</h1>
   <button onClick={()=>setCount(count+1)}>add</button>
+  {count % 2 ? <button>click</button> : <span>omg</span>}
   </>);
 }
 
