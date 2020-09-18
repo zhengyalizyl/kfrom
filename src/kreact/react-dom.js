@@ -217,7 +217,7 @@ function reconcileChildren(workInProgress, children) {
       oldFiber=oldFiber.sibling;
     }
     if (i === 0) {
-      workInProgress.child = newFiber;
+      workInProgress.child = newFiber;//第一个的prevsibling为null
     } else {
       prevSibling.sibling = newFiber;
     }
@@ -291,6 +291,9 @@ export const useState = init => {
   return [hook.state, setState];
 };
 
+
+
+
 export default {
-  render
+  render,
 };

@@ -39,6 +39,23 @@ function createTextNode(text){
 }
 
 
+export const  cloneElement=(element,config,...children)=>{
+  const props={...element.props};
+  let defaultProps=element.type&&element.type.defaultProps?element.type.defaultProps:{};
+  for(let propName in config){
+    if(propName!=='key'||propName!=='ref'){
+      let  val=config[propName]||defaultProps[propName]
+      val&&(props[propName]=val)
+    }
+  }
+  props.children=children.map(child=>typeof child==='object'?child:createTextNode(child))
+  return {
+    key:element.key||config.key||'',
+    type:element.type,
+    props,
+  };
+}
 
 
-export default { createElement };
+
+export default { createElement,cloneElement };

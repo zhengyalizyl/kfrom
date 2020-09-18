@@ -75,6 +75,17 @@ function Comp(props) {
   </>);
 }
 
+
+
+const ProcessInput=({value,onChange})=>React.cloneElement(<input/>,{
+  placeholder:'test',
+  value,
+  onChange:(e)=>{
+    onChange(e.target.value)
+  }
+})
+
+
 class Comp2 extends Component {
   static defaultProps = {
     color: "pink"
@@ -95,6 +106,9 @@ const jsx = (
     <div>开可把</div>
     <Comp name="zyl"></Comp>
     <Comp2 name="zyl"></Comp2>
+    <ProcessInput value={1} onChange={(val)=>{
+      console.log(val)
+    }}/>
     <>
       <p>1233</p>
       <p>2345</p>
